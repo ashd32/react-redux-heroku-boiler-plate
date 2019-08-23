@@ -1,0 +1,44 @@
+{
+  "name": "boiler-plate",
+  "version": "1.0.0",
+  "description": "boiler-plate",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mcmanus-solutions/react-redux-heroku-boiler-plate"
+  },
+  "author": "Guy McManus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcmanus-solutions/react-redux-heroku-boiler-plate/issues"
+  },
+  "homepage": "https://github.com/mcmanus-solutions/react-redux-heroku-boiler-plate#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.2.2",
+    "express": "^4.17.1",
+    "express-validator": "^6.1.1",
+    "gravatar": "^1.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.6.9",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.1",
+    "husky": "^3.0.3",
+    "nodemon": "^1.19.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test && lint-staged",
+      "pre-push": "npm test"
+    }
+  }
+}
